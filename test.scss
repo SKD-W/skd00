@@ -1,0 +1,33 @@
+@mixin animatee($popName, $popDuration) {
+    animation-name: $popName;
+    animation-duration: $popDuration;
+}
+div{
+    position: relative;
+    width: 100px;
+    height: 80px;
+    background-color: green;
+    border: 2px solid black;
+    .tes{
+        width: 30px;
+        height: 15px;
+        background-color: azure;
+        position: absolute;
+        right: 25px;
+        bottom: 40px;
+
+    }
+    .tes:hover{
+        cursor: pointer;
+        @include animatee(testDrive, 5s);
+
+    }
+    @keyframes testDrive{
+        from{
+            background-color: chocolate;
+        }
+        to{
+            background-color: darkorchid;
+        }
+    }
+}

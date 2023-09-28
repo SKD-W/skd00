@@ -1,0 +1,278 @@
+// variables for colors and font style
+$primary_color: #000000ce;
+$secondary_color: crimson;
+$sub_bar: #000000cc;
+$font_fam: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// variables for subtitute colors
+$sub_1: #80808080;
+$sub_2: #eeeeeeee;
+
+//
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    max-width: 1440px;
+    font: {
+        family: $font_fam;
+        size: 1em;
+    }
+}
+::selection{
+    background-color: $primary_color;
+    color: #eee;
+}
+
+// style for nav box
+nav {
+    width: 100%;
+    margin: auto;
+    background-color: $primary_color;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        
+        a {
+            text: {
+                decoration: none;
+            }
+            color: #eee;
+        }
+    }
+    
+    // main event variables sub-bar
+    @mixin drop-box {
+        display: block;
+        padding: 12px 10px;
+    }
+    @mixin bar-box {
+        position: absolute;
+        display: block;
+        min-width: 140px;
+        z-index: 1;
+    }
+
+    // psuedo style for sub-bar
+    li a:hover {
+        background-color: #eee;
+        color: $secondary_color;
+    }
+    .sub-bar {
+        display: none;
+    }
+    li:hover .sub-bar {
+        @include bar-box();
+
+        a:hover {
+            border: 1px solid $secondary_color;
+            color: $sub_2;
+        }
+    }
+    li a, .drop {
+        @include drop-box();
+    }
+    li:hover .sub-bar a {
+        background-color: #000000ce;
+        color: #eee;
+    }
+}
+
+// style for header box
+header {
+    width: 100%;
+    padding: 30px;
+
+    h1 {
+        text: {
+            align: center;
+        }
+        font: {
+            size: 26px;
+        }
+
+        span {
+            color: crimson;
+        }
+    }
+}
+
+// box container
+@mixin box-con {
+    border: 1px solid #ccc;
+    padding: 15px 15px;
+    background-color: $sub_2;
+}
+@mixin animate($popAni) {
+    animation: $popAni;
+}
+
+// style for the section box
+section {
+    width: 100%;
+    margin: 40px auto;
+    z-index: 1;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        position: relative;
+        margin: auto 30px;
+        gap: 30px;
+    }
+    .box {
+        @include box-con();
+
+        img {
+            width: 100%;
+            position: relative;
+        }
+        img.pop1:hover {
+            @include animate(ani-pop 10s infinite);
+            @keyframes ani-pop {
+                0% {filter: sepia(60%);}
+                20% {filter: sepia(40%);}
+                40% {filter: sepia(20%);}
+                60% {filter: sepia(40%);}
+                80% {filter: sepia(60%);}
+                100% {filter: sepia(80%);}
+            }
+        }
+    
+        img.pop2:hover {
+            filter: saturate(2);
+        }
+        img.pop3:hover {
+            filter: hue-rotate(50deg);
+        }
+        img.pop4:hover {
+            filter: blur(0.7px);
+        }
+
+        h4{
+            color: #000;
+            text-align: center;
+            padding: 10px 0;
+        }
+        p{
+            font: {
+                size: 15px;
+            }
+            text: {
+                align: center;
+            }
+
+            a {
+                text: {
+                    decoration: underline;
+                }
+                color: $primary_color;
+            }
+            span.slash {
+                margin-left: 4%;
+                color: crimson;
+                text: {
+                    decoration: line-through;
+                }
+            }
+        }
+    }
+    
+}
+
+//style for footer box
+footer {
+    background-color: $primary_color;
+    width: 100%;
+    padding: 10px;
+    margin-top: -1%;
+
+    p {
+        color: #fff;
+        text: {
+            align: center;
+        }
+
+        span{
+            color: crimson;
+        }
+    }
+}
+
+// screen box
+@mixin tbl-box {
+    display: block;
+    width: 100%;
+}
+
+// media screen for tablet
+@media screen and (max-width: 876px) {
+    section {
+        width: 100%;
+        position: relative;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+        .box {
+            @include tbl-box();
+        }
+        .box-iv {
+            position: relative;
+            display: block;
+            left: 110%;
+        }
+    }
+}
+
+@media screen and (max-width: 690px) {
+    section {
+        width: 100%;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        .box {
+            @include tbl-box();
+        }
+        .box-iv {
+            display: block;
+            position: relative;
+            left: 1%;
+        }
+    }
+}
+
+// media screen for mobile device
+@media screen and (max-width: 480px) {
+    header {
+        h1{
+            font-size: 19px;
+        }
+    }
+    section {
+        width: 100%;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+        }
+    }
+}
+@media screen and (max-width: 375px) {
+    header {
+        h1{
+            font-size: 16px;
+        }
+    }
+}

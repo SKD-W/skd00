@@ -1,0 +1,28 @@
+div {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  background-color: green;
+  border: 2px solid black;
+}
+div .tes {
+  width: 30px;
+  height: 15px;
+  background-color: azure;
+  position: absolute;
+  right: 25px;
+  bottom: 40px;
+}
+div .tes:hover {
+  cursor: pointer;
+  animation-name: testDrive;
+  animation-duration: 5s;
+}
+@keyframes testDrive {
+  from {
+    background-color: chocolate;
+  }
+  to {
+    background-color: darkorchid;
+  }
+}/*# sourceMappingURL=test.css.map */

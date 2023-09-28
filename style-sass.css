@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 1440px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1em;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 0, 0, 0.8078431373);
+  color: #eee;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.8078431373);
+  color: #eee;
+}
+
+nav {
+  width: 100%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.8078431373);
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline-block;
+}
+nav li a {
+  text-decoration: none;
+  color: #eee;
+}
+nav li a:hover {
+  background-color: #eee;
+  color: crimson;
+}
+nav .sub-bar {
+  display: none;
+}
+nav li:hover .sub-bar {
+  position: absolute;
+  display: block;
+  min-width: 140px;
+  z-index: 1;
+}
+nav li:hover .sub-bar a:hover {
+  border: 1px solid crimson;
+  color: rgba(238, 238, 238, 0.9333333333);
+}
+nav li a, nav .drop {
+  display: block;
+  padding: 12px 10px;
+}
+nav li:hover .sub-bar a {
+  background-color: rgba(0, 0, 0, 0.8078431373);
+  color: #eee;
+}
+
+header {
+  width: 100%;
+  padding: 30px;
+}
+header h1 {
+  text-align: center;
+  font-size: 26px;
+}
+header h1 span {
+  color: crimson;
+}
+
+section {
+  width: 100%;
+  margin: 40px auto;
+  z-index: 1;
+}
+section .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  position: relative;
+  margin: auto 30px;
+  gap: 30px;
+}
+section .box {
+  border: 1px solid #ccc;
+  padding: 15px 15px;
+  background-color: rgba(238, 238, 238, 0.9333333333);
+}
+section .box img {
+  width: 100%;
+  position: relative;
+}
+section .box img.pop1:hover {
+  animation: ani-pop 10s infinite;
+}
+@keyframes ani-pop {
+  0% {
+    filter: sepia(60%);
+  }
+  20% {
+    filter: sepia(40%);
+  }
+  40% {
+    filter: sepia(20%);
+  }
+  60% {
+    filter: sepia(40%);
+  }
+  80% {
+    filter: sepia(60%);
+  }
+  100% {
+    filter: sepia(80%);
+  }
+}
+section .box img.pop2:hover {
+  filter: saturate(2);
+}
+section .box img.pop3:hover {
+  filter: hue-rotate(50deg);
+}
+section .box img.pop4:hover {
+  filter: blur(0.7px);
+}
+section .box h4 {
+  color: #000;
+  text-align: center;
+  padding: 10px 0;
+}
+section .box p {
+  font-size: 15px;
+  text-align: center;
+}
+section .box p a {
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.8078431373);
+}
+section .box p span.slash {
+  margin-left: 4%;
+  color: crimson;
+  text-decoration: line-through;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8078431373);
+  width: 100%;
+  padding: 10px;
+  margin-top: -1%;
+}
+footer p {
+  color: #fff;
+  text-align: center;
+}
+footer p span {
+  color: crimson;
+}
+
+@media screen and (max-width: 876px) {
+  section {
+    width: 100%;
+    position: relative;
+  }
+  section .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  section .box {
+    display: block;
+    width: 100%;
+  }
+  section .box-iv {
+    position: relative;
+    display: block;
+    left: 110%;
+  }
+}
+@media screen and (max-width: 690px) {
+  section {
+    width: 100%;
+  }
+  section .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  section .box {
+    display: block;
+    width: 100%;
+  }
+  section .box-iv {
+    display: block;
+    position: relative;
+    left: 1%;
+  }
+}
+@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 19px;
+  }
+  section {
+    width: 100%;
+  }
+  section .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+@media screen and (max-width: 375px) {
+  header h1 {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=style-sass.css.map */
