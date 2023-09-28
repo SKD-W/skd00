@@ -69,9 +69,7 @@ header {
   padding: 30px;
 }
 header h1 {
-  color: green;
-  position: relative;
-  text-align: right;
+  text-align: center;
   font-size: 30px;
 }
 header h1 span {
